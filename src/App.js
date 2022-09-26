@@ -1,25 +1,36 @@
-import logo from './logo.svg';
+import { useState, createContext, useEffect } from "react";
 import './App.css';
+import Title from './components/Title';
+import Main from './components/Main';
+import Footer from './components/Footer';
+const server = "https://api.adviceslip.com/advice";
+export const DataContext = createContext();
 
-function App() {
+export default function App() {
+  const [data, setData] = useState({});
+  const [refresh, setRefresh] = useState(false);
+
+  useEffect(()=> {
+    const getData = async () => {
+      const response = await fetch(server);
+      const received = await response.json();
+      setData(received);
+    }
+    getData()
+  },[refresh])
+
+  function refresher(){ 
+    return refresh === false ? setRefresh(true) : setRefresh(false); 
+  }
+  
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app" id='app'>
+      <DataContext.Provider value={{data, refresher}} >
+        <Title />
+        <Main />
+        <Footer />
+      </DataContext.Provider>
     </div>
-  );
+  )
 }
-
-export default App;

@@ -1,38 +1,170 @@
-.App {
-  text-align: center;
+:root {
+	--primary-color-1: hsl(193, 38%, 86%);
+	--primary-color-2: hsl(150, 100%, 66%);
+	--neutral-color-1: hsl(217, 19%, 38%);
+	--neutral-color-2: hsl(217, 19%, 24%);
+	--neutral-color-3: hsl(218, 23%, 16%);
+	--font-size-quote: 28px;
+	--font-weight: 800;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+@font-face {
+	font-family: Manrope-Extra-Light;
+	src: url('./fonts/Manrope-ExtraLight.ttf');
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+@font-face {
+	font-family: Manrope-Light;
+	src: url("./fonts/Manrope-Light.ttf");
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+@font-face {
+	font-family: Manrope-Medium;
+	src: url("./fonts/Manrope-Medium.ttf");
 }
-
-.App-link {
-  color: #61dafb;
+@font-face {
+	font-family: Manrope-Regular;
+	src: url("./fonts/Manrope-Regular.ttf");
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+@font-face {
+	font-family: Manrope-Semi-Bold;
+	src: url("./fonts/Manrope-SemiBold.ttf");
+}
+@font-face {
+	font-family: Manrope-Bold;
+	src: url("./fonts/Manrope-Bold.ttf");
+}
+@font-face {
+	font-family: Manrope-Extra-Bold;
+	src: url("./fonts/Manrope-ExtraBold.ttf");
+}
+*,
+*:before,
+*:after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	font-weight: var(--font-weight);
+}
+html {
+	height: 100%;
+	width: 100%;
+	background-color: var(--neutral-color-3);
+}
+body {
+	position: relative;
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+	width: 100%;
+	color: #fff;
+	background: black;
+	transition: color 0.5s, background-color 0.5s;
+	line-height: 1.6;
+	font-family: Manrope-Medium, Inter, -apple-system, BlinkMacSystemFont,
+		Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
+		Helvetica Neue, sans-serif;
+	font-size: 15px;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+#root{
+	height:100%;
+	width: 100%;
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: center;
+	align-items: center;
+}
+#app {
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	background-color: var(--neutral-color-2);
+	padding: 0 25px;
+	min-width: 340px;
+	width: 37.5%;
+	border-radius: 10px;
+}
+main {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-flow: column nowrap;
+}
+.header{
+	display:flex;
+	justify-content:center;
+	align-items:center;
+}
+h1 {
+	font-family: Manrope-Medium, Arial, Helvetica, sans-serif;
+	font-weight: 100;
+	font-size: 12px;
+	letter-spacing: 5px;
+	color: var(--primary-color-2);
+	margin: 30px 0;
+}
+.advice__text {
+	font-size: var(--font-size-quote);
+	text-align: center;
+	font-weight: 600;
+	line-height: 1.7rem;
+	width: 100%;
+}
+.stylish__container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-flow: row nowrap;
+	height: 10px;
+	width: 100%;
+	padding: 40px 0;
+}
+.stylish__bar {
+	height: 1px;
+	width: 100%;
+	background: var(--primary-color-1);
+}
+.double__bar__container {
+	min-width: 50px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 7px;
+}
+.double__bar {
+	width: 6px;
+	height: 16px;
+	background-color: #fff;
+	border-radius: 3px;
+}
+.dice__circle {
+	position: relative;
+	top: 13px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: var(--primary-color-2);
+	padding: 20px;
+	border-radius: 100%;
+	margin: -20px;
+	transition: 0.2s all;
+	box-shadow: none;
+}
+.dice__circle:hover {
+	box-shadow: 0 0 25px #73ede9;
+}
+footer {
+	position: absolute;
+	bottom: 10px;
+}
+.attribution {
+	font-size: 11px;
+	text-align: center;
+}
+.attribution a {
+	color: #3e52a3;
 }
